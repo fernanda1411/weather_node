@@ -2,15 +2,20 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const forecastCallback = (error, data) => {
-    console.log('Error', error)
-    console.log('Data', data)
+    if (error) {
+        console.log('Error', error)
+    } else {
+        console.log('Data', data)
+    }
 }
 
 const geoCodeCallback = (error, data) => {
-    console.log('Error', error)
-    console.log('Data', data)
-
-    forecast(data.latitude, data.longitude, forecastCallback)
+    if (error) {
+     console.log('Error', error)
+    } else {
+        console.log('Data', data)
+        forecast(data.latitude, data.longitude, forecastCallback)
+    }
 }
 
 geocode('Boston', geoCodeCallback)
