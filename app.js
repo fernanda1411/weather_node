@@ -11,6 +11,3 @@ geocode('Boston', (error, data) => {
         console.log('Data', data)
     })
 })
-
-
-
